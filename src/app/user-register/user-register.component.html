@@ -1,0 +1,55 @@
+<p-dialog header="Register User" [(visible)]="userRegistrationDialogVisibility" (onHide)="onCloseDialog()"
+    [style]="{width: '70vw', height: '87vh'}" [position]="'top'">
+    <form [formGroup]="registrationForm">
+        <div class="p-fluid">
+            <div class="p-field mb-4">
+                <label for="name" class="block text-lg font-medium text-gray-700">Name</label>
+                <input id="name" type="text" pInputText formControlName="name"
+                    class="p-inputtext p-component p-2 w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                <div class="text-red-700 text-sm" 
+                *ngIf="registrationForm?.get('name')?.hasError('required') && 
+                registrationForm?.get('name')?.touched">
+                    Name is required.
+                </div>
+            </div>
+            <div class="mb-4">
+                <label for="dob" class="block text-lg font-medium text-gray-700">Date of Birth</label>
+                <p-calendar id="dob" hourFormat="24" showIcon="true" [iconDisplay]="'input'" formControlName="dob"
+                    class="p-calendar p-component p-2 w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></p-calendar>
+                    <div class="text-red-700 text-sm" 
+                    *ngIf="registrationForm?.get('dob')?.hasError('required') && 
+                    registrationForm?.get('dob')?.touched">
+                    Date of birth is required.
+                </div>
+            </div>
+            <div class="p-field mb-4">
+                <label for="gender" class="block text-lg font-medium text-gray-700">Gender</label>
+                <p-dropdown [options]="genderOptions" autoWidth="false" [style]="{'width':'100%'}" 
+                placeholder="Select" formControlName="gender"
+                    class="p-dropdown p-component w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500"></p-dropdown>
+                    <div class="text-red-700 text-sm" 
+                    *ngIf="registrationForm?.get('gender')?.hasError('required') && 
+                    registrationForm?.get('gender')?.touched">
+                    Gender is required.
+                </div>
+            </div>
+            <div class="p-field mb-4">
+                <label for="fatherName" class="block text-lg font-medium text-gray-700">Father's Name</label>
+                <input id="fatherName" type="text" pInputText formControlName="fatherName"
+                    class="p-inputtext p-component p-2 w-full border border-gray-300 rounded-md shadow-sm focus:border-indigo-500 focus:ring-indigo-500">
+                    <div class="text-red-700 text-sm" 
+                    *ngIf="registrationForm?.get('fatherName')?.hasError('required') && 
+                    registrationForm?.get('fatherName')?.touched">
+                    Father name is required.
+                </div>
+            </div>
+        </div>
+    </form>
+
+    <ng-template pTemplate="footer">
+        <div class="flex justify-end">
+            <button type="button" pButton label="Submit" icon="pi pi-check" (click)="onSubmitUserDetails()"
+                class="p-button p-component bg-blue-600 text-white p-2 pr-3.5"></button>
+        </div>
+    </ng-template>
+</p-dialog>
