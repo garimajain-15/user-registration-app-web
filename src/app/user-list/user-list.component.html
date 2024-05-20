@@ -1,5 +1,21 @@
 <app-navbar></app-navbar>
-<!-- content goes here -->
-<div class="py-32 text-center">
-    <h2 class="font-extrabold text-4xl">Navbars in Tailwind!</h2>
+<div class="p-10 text-center">
+    <p-table [value]="userList" styleClass="p-datatable-gridlines">
+        <ng-template pTemplate="header"> 
+            <tr> 
+                <th>Name</th> 
+                <th>Date of Birth</th> 
+                <th>Gender</th> 
+                <th>Father Name</th>
+            </tr> 
+        </ng-template> 
+        <ng-template pTemplate="body" let-userDetail>
+            <tr>
+                <td>{{ userDetail.name }}</td>
+                <td>{{ userDetail.dob }}</td>
+                <td>{{ userDetail.gender }}</td>
+                <td>{{ userDetail.fatherName }}</td>
+            </tr>
+        </ng-template>
+    </p-table>
 </div>
