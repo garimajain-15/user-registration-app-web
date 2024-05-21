@@ -19,12 +19,14 @@ export class NavbarComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    // subscription to show/close the registration dialog by updating the visibilty
     this.userRegisterationDialogDisplayDetails$ = this.userRegisterService.userRegisterationDialogDisplayDetails$.subscribe((dialogConfirmation: boolean) => {
       this.userRegistrationDialogVisibility = dialogConfirmation;
     });
   }
 
   openUserRegistrationDialog() {
+    // Updating the visibilty to open register dialog & trigger register component app selector
     this.userRegistrationDialogVisibility = true;
   }
 

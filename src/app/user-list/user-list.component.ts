@@ -37,6 +37,7 @@ export class UserListComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit(): void {
+    // Subscribe to addNewUserInformation$ observable to get new user details
     this.addNewUserInformation$ = this.userRegisterService.addNewUserInformation$.subscribe((userDetails: IUser) => {
       if (userDetails) {
         this.userList.unshift(userDetails);
@@ -44,6 +45,7 @@ export class UserListComponent implements OnInit, OnDestroy {
         this.messageService.add({ severity: 'success', summary: 'Success', detail: 'New user added successfully.' });
       }
     })
+    // Prepopulate userList with static data
     this.userList = [
       { id: 1, name: 'Alice Smith', dob: '10/05/1990', fatherName: 'John Smith', gender: 'Female' },
       { id: 2, name: 'Bob Johnson', dob: '23/11/1988', fatherName: 'Michael Johnson', gender: 'Male' },
