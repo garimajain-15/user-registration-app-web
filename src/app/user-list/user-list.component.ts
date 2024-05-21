@@ -12,7 +12,7 @@ import { CommonModule } from '@angular/common';
 import { MessageService } from 'primeng/api';
 
 export interface IUser {
-  id: number;
+  id?: number;
   name: string;
   dob: string;
   gender: string;
