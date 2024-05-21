@@ -22,7 +22,7 @@ export interface IUser {
 @Component({
   selector: 'app-user-list',
   standalone: true,
-  imports: [NavbarComponent, TableModule, ButtonModule, InputTextModule, 
+  imports: [NavbarComponent, TableModule, ButtonModule, InputTextModule,
     FormsModule, ToastModule, CommonModule],
   templateUrl: './user-list.component.html',
   styleUrl: './user-list.component.scss',
@@ -30,13 +30,11 @@ export interface IUser {
 })
 export class UserListComponent implements OnInit, OnDestroy {
   public userList: IUser[] = [];
-  public addNewUserInformation$?: Subscription;
+  public addNewUserInformation$!: Subscription;
   public isNewUserAdded: boolean = false;
 
   constructor(public userRegisterService: UserRegisterService, private messageService: MessageService) {
-
   }
-
 
   ngOnInit(): void {
     this.addNewUserInformation$ = this.userRegisterService.addNewUserInformation$.subscribe((userDetails: IUser) => {

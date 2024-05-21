@@ -12,7 +12,7 @@ import { UserRegisterService } from '../user-register/user-register.service';
   styleUrl: './navbar.component.scss'
 })
 export class NavbarComponent implements OnInit, OnDestroy {
-  public userRegisterationDialogDisplayDetails$?: Subscription
+  public userRegisterationDialogDisplayDetails$!: Subscription
   public userRegistrationDialogVisibility: boolean = false;
 
   constructor(public userRegisterService: UserRegisterService) {
